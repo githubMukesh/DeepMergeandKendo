@@ -1,0 +1,24 @@
+<kendo-chart [seriesColors]="['orange', '#ffe']">
+  <!-- /* Lables are called the above part of graph that is legend  */ -->
+  <kendo-chart-legend position="top" [labels]="{ content: legendLabelData }"></kendo-chart-legend>
+  <!--Tool tip value-->
+  <kendo-chart-tooltip  format="Default Content {0}">
+      <ng-template kendoChartSeriesTooltipTemplate let-value="value" let-cat="category">
+          Series 1 value: {{ cat + value}}
+      </ng-template>
+    </kendo-chart-tooltip>
+    <kendo-chart-series-item-labels position= 'outsideEnd' [content]="labelContent">
+      </kendo-chart-series-item-labels>
+   
+
+
+  <kendo-chart-series>
+    <kendo-chart-series-item type="pie"
+      [data]="pieData"
+      field="value"
+      categoryField="category">
+      <kendo-chart-series-item-labels position="outsideEnd" visible="true" [content]="labelContent">
+        </kendo-chart-series-item-labels>
+      </kendo-chart-series-item>
+  </kendo-chart-series>
+</kendo-chart>

@@ -1,0 +1,16 @@
+<kendo-chart [categoryAxis]="{ categories: categories }" (seriesClick)="onSeriesClick($event)">
+  <kendo-chart-series-defaults type="bar">
+    <kendo-chart-series-defaults-labels format="c">
+    </kendo-chart-series-defaults-labels>
+  </kendo-chart-series-defaults>
+  <kendo-chart-legend position="top"  [labels]="{ content: legendLabelData }"></kendo-chart-legend>
+  <kendo-chart-series>
+    <kendo-chart-series-item [data]="salesData">
+    </kendo-chart-series-item>
+    <kendo-chart-series-item [data]="purchaseData">
+    </kendo-chart-series-item>
+  </kendo-chart-series>
+</kendo-chart>
+
+<kendo-contextmenu #chartmenu [items]="items" (select)="onSelect($event)">
+</kendo-contextmenu>

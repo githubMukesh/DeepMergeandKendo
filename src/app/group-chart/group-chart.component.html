@@ -1,0 +1,24 @@
+<kendo-chart [categoryAxis]="{ categories: categories }">
+  <kendo-chart-series-defaults >
+    <kendo-chart-series-defaults-labels format="c">
+    </kendo-chart-series-defaults-labels>
+  </kendo-chart-series-defaults>
+
+  <kendo-chart-tooltip  format="Default Content {0}">
+      <ng-template kendoChartSeriesTooltipTemplate let-value="value" let-cat="category" let-data="dataItem" let-series="series">
+          <!-- Series 1 value: {{ cat + value}} -->
+          <!-- {{data| json}} -->
+          {{series.name | upper}}
+      </ng-template>
+    </kendo-chart-tooltip>
+
+
+  <kendo-chart-legend position="bottom" [labels]="{ content: legendLabelData }"></kendo-chart-legend>
+  <kendo-chart-series type="column">
+    <ng-container *ngFor="let data of salesData">
+        <kendo-chart-series-item [data]="data.value" [field]="'value'" [name]="data.category">
+          </kendo-chart-series-item>
+    </ng-container>
+  
+  </kendo-chart-series>
+</kendo-chart>
